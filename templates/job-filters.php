@@ -20,6 +20,8 @@ wp_enqueue_script( 'wp-job-manager-ajax-filters' );
 do_action( 'job_manager_job_filters_before', $atts );
 ?>
 
+<div class="row">
+<div class="col-sm-12 col-md-4">
 
 <form class="job_filters">
 	<?php do_action( 'job_manager_job_filters_start', $atts ); ?>
@@ -75,6 +77,10 @@ do_action( 'job_manager_job_filters_before', $atts );
 </form>
 
 <?php do_action( 'job_manager_job_filters_after', $atts ); ?>
+	
+	</div> <!-- .col-md-4 -->
+	
+	</div> <!-- .row -->
 
 
 <noscript><?php esc_html_e( 'Your browser does not support JavaScript, or it is disabled. JavaScript must be enabled in order to view listings.', 'wp-job-manager' ); ?></noscript>
