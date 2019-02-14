@@ -16,3 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 </ul>
+
+	</div> <!-- .row -->
+
