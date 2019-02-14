@@ -15,4 +15,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
+<div class="col-sm-12 col-md-8">
 <ul class="job_listings">
