@@ -18,21 +18,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 ?>
-<li <?php job_listing_class(); ?> data-longitude="<?php echo esc_attr( $post->geolocation_lat ); ?>" data-latitude="<?php echo esc_attr( $post->geolocation_long ); ?>">
-	<a href="<?php the_job_permalink(); ?>">
-		<?php the_company_logo(); ?>
-		<div class="position">
-			<h3><?php wpjm_the_job_title(); ?></h3>
-			<div class="company">
+
+
+<?php /*<li <?php job_listing_class(); ?> data-longitude="<?php echo esc_attr( $post->geolocation_lat ); ?>" data-latitude="<?php echo esc_attr( $post->geolocation_long ); ?>">*/ :?
+	<article id="post-<?php the_ID(); ?>" <?php post_class( "card cb-blog-style-a cb-module-e cb-separated clearfix" ); ?> <?php job_listing_class(); ?> data-longitude="<?php echo esc_attr( $post->geolocation_lat ); ?>" data-latitude="<?php echo esc_attr( $post->geolocation_long ); ?>">
+	
+            <div class="cb-mask cb-img-fw" <?php cb_img_bg_color( $cb_post_id ); ?>>
+                <?php /*cb_thumbnail( '260', '170' ); */?>
+				<?php the_company_logo(); ?>
+            </div> <!-- .cb-mask-->
+
+ <div class="cb-meta clearfix">
+
+                <h2 class="cb-post-title"><a href="<?php the_job_permalink(); ?>"><?php wpjm_the_job_title(); ?></a></h2>
+
+                <?php cb_byline( $cb_post_id ); ?>
+
+                <div class="cb-excerpt">
+	 			<div class="company">
 				<?php the_company_name( '<strong>', '</strong> ' ); ?>
 				<?php the_company_tagline( '<span class="tagline">', '</span>' ); ?>
-			</div>
-		</div>
-		<div class="location">
+			</div> <!-- .company -->
+	 </div> <!-- .cb-excerpt -->
+	 		<div class="location">
 			<?php the_job_location( false ); ?>
-		</div>
-		<ul class="meta">
-			<?php do_action( 'job_listing_meta_start' ); ?>
+		</div> <!-- .location -->
+	 
+	 			<?php do_action( 'job_listing_meta_start' ); ?>
 
 			<?php if ( get_option( 'job_manager_enable_types' ) ) { ?>
 				<?php $types = wpjm_get_the_job_types(); ?>
@@ -45,5 +57,8 @@ global $post;
 
 			<?php do_action( 'job_listing_meta_end' ); ?>
 		</ul>
-	</a>
-</li>
+                
+                <?php/* cb_post_meta( $cb_post_id ); */?>
+
+            </div> <!-- .cb-meta -->
+</article> <!-- card -->
